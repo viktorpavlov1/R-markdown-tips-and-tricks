@@ -275,7 +275,6 @@ p {
 <p>install.packages(“flexdashboard”)</p>
 <p>To load the flexdashboard package, you can use</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="html-css-and-flexdashboard.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flexdashboard)</span></code></pre></div>
-<pre><code>## Warning: package &#39;flexdashboard&#39; was built under R version 4.1.2</code></pre>
 <p>You should also make sure that your output is in the form of a flexdashboard, you can do this by changing the output to flexdashboard::flex_dashboard.</p>
 <p>The goal of flexdashboard is to make it easy to create interactive dashboards for R, using R Markdown.</p>
 <ul>
@@ -295,8 +294,7 @@ p {
 <li><p>Flexible and easy to specify row and column-based layouts. Components are intelligently re-sized to fill the browser and adapted for display on mobile devices.</p></li>
 <li><p>Storyboard layouts for presenting sequences of visualizations and related commentary.</p></li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="html-css-and-flexdashboard.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gss_cat, <span class="fu">aes</span>(race, tvhours, <span class="at">fill=</span>race)) <span class="sc">+</span><span class="fu">geom_col</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 10146 rows containing missing values (position_stack).</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="html-css-and-flexdashboard.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gss_cat, <span class="fu">aes</span>(race, tvhours, <span class="at">fill=</span>race)) <span class="sc">+</span><span class="fu">geom_col</span>()</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>You can add an input sidebar to a flexdashboard by adding the {.sidebar} attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document.</p>
 
