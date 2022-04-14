@@ -1,0 +1,213 @@
+
+# How to Build Websites on R Markdown
+*Chapter authors: Nazim Dağdeviren, Anne Foxen, Joseph Abimael, Boyan Lazarov, David Pogossian, Anil Temiz*
+
+## Introduction 
+
+ 
+
+Before the library blogdown was invented, the rmarkdown package had provided a simple site generator that did not rely on a third-party site generator like Hugo. 
+
+ 
+
+You can render collections of R Markdown documents as a website using the rmarkdown::render_site() function. We will call such websites “R Markdown websites” in this section. The RStudio IDE (version 1.0 or higher) also includes integrated support for developing R Markdown websites. 
+
+ 
+
+A simple example on how to create website on RStudio 
+
+To start with, let’s walk through a very simple example, a website that includes two pages (Home and About) and a navigation bar to switch between them. 
+
+First, we need a configuration file _site.yml: 
+```{r, eval=FALSE}
+
+name: "my-website" 
+
+navbar: 
+
+  title: "My Website" 
+
+  left: 
+
+    - text: "Home" 
+
+      href: index.html 
+
+    - text: "About" 
+
+      href: about.html 
+```
+
+
+
+Then two Rmd files, index.Rmd: 
+```{r, eval=FALSE}
+--- 
+
+title: "My Website" 
+
+--- 
+
+ 
+
+Hello, Website! 
+
+and about.Rmd: 
+
+--- 
+
+title: "About This Website" 
+
+--- 
+
+```
+
+
+ 
+
+More about this website. 
+
+ 
+
+Note that the minimum requirement for any R Markdown website is that it has an index.Rmd file as well as a _site.yml file. 
+
+As for the context of the site that all works the same as you usually put code in rStudio. You can put the code in the place where in the examples it says “More about this website”. 
+
+ If you execute the rmarkdown::render_site() function from within the directory containing the website, the following will occur: 
+
+ 
+
+All of the *.Rmd and *.md files in the root website directory will be rendered into HTML. Note, however, that Markdown files beginning with _ are not rendered (this is a convention to designate files that are to be included by top level Rmd documents as child documents). 
+
+ 
+
+The generated HTML files and any supporting files (e.g., CSS and JavaScript) are copied into an output directory (_site by default). 
+
+The HTML files within the _site directory are now ready to deploy as a standalone static website. 
+
+ 
+
+ 
+
+The navbar element of _site.yml can be used to define a common navigation bar for your website. You can include internal and external links on the navigation bar as well as drop-down menus for sites with a large number of pages. 
+
+ 
+
+R Markdown includes many facilities for generation of HTML content from R objects, including: 
+
+The conversion of standard R output types (e.g., textual output and plots) within code chunks done automatically by knitr. 
+
+A variety of ways to generate HTML tables, including the knitr::kable() function and other packages such as kableExtra and pander. 
+
+A large number of available HTML widgets that provide rich JavaScript data visualizations. 
+
+As a result, for many R Markdown websites you will not need to worry about generating HTML output at all (since it is created automatically). 
+
+ 
+
+The _site.yml file has a number of options that affect site output, including where it is written and what files are included and excluded from the site. Here is an example that makes use of a few of these options: 
+
+
+name: "my-website" 
+
+output_dir: "_site" 
+
+include: ["import.R"] 
+
+exclude: ["docs.txt", "*.csv"] 
+
+The name field provides a suggested URL path for your website when it is published (by default this is just the name of the directory containing the site). 
+
+The output_dir field indicates which directory to copy site content into ("_site" is the default if none is specified). It can be "." to keep all content within the root website directory alongside the source code. 
+
+ 
+
+ 
+
+## Why do I need an R Project? 
+
+The R Project is useful because RStudio will recognize your project as a website, and provide appropriate build tools. 
+
+Note: After creating the R Project and initial files, you may need to close the project and reopen it before R will recognize it as a website and show the appropriate build tools. 
+
+ 
+
+## Why use rMarkdown over html/css? 
+
+ 
+
+in r markdown it is very easy to combine code with an explanation. In the rendering the markdown file will be converted to an html file. This function can also be used with css to make the website look better. Why would put in all the effort to create a whole website with html when you can convert your graphs with the explination via r. 
+ It is a good way to show the true extent of ones research as everything is included. 
+
+ 
+
+## Create content 
+
+Edit the _site.yml file to change the metadata, layout, and theme of your website.  
+
+ 
+
+For example, the _site.yml for cats’ personal website looks like this: 
+
+
+```{r, eval=FALSE}
+
+
+name: "cat-website" 
+navbar: 
+  title: "My cats' website" 
+  left: 
+    - text: "Home" 
+      href: index.html 
+  right:  
+    - icon: fa-envelope fa-lg 
+      href: mailto:<cats@catemail.com> 
+    - icon: fa-github fa-lg 
+      href: http://github.com/<YOUR_GH_NAME>/ 
+output: 
+  html_document: 
+    theme: darkly 
+
+ 
+```
+
+ 
+Source:
+
+https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html#:~:text=The%20R%20Project%20is%20useful,show%20the%20appropriate%20build%20tools. 
+
+ 
+
+## How to host your website on Hera 
+
+ Request your own hosting space on our Linux webhosting (hera.fhict.nl) 
+
+This webhosting is setup to host your own PHP websites. You can use these applications here: 
+
+	  
+
+PHP 
+
+	  
+
+Joomla 
+
+	  
+
+Wordpress 
+
+	  
+
+Magento 
+
+Source: https://selfservice.app.fhict.nl/Webhosting/Linux 
+
+ 
+
+ 
+
+Hosting The Hera and Venus servers are special made for practice making web applications. You can apply for an account and use ASP, ASPX, PHP, MySQL. Windows and Linux. The URL for hosting: https://apps.fhict.nl/selfservice 
+
+ 
+
+Source: https://portal.fhict.nl/Studentenplein/ISSD/Shared%20Documents/Welcome%20to%20Fontys%20University%20of%20Applied%20Sciences.pdf#search=hera 

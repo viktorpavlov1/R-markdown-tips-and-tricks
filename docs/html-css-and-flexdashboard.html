@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R markdown - tips and tricks</title>
-  <meta name="description" content="R markdown - tips and tricks" />
+  <title>Chapter 4 HTML, CSS and Flexdashboard | R markdown - tips and tricks</title>
+  <meta name="description" content="Chapter 4 HTML, CSS and Flexdashboard | R markdown - tips and tricks" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R markdown - tips and tricks" />
+  <meta property="og:title" content="Chapter 4 HTML, CSS and Flexdashboard | R markdown - tips and tricks" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R markdown - tips and tricks" />
+  <meta name="twitter:title" content="Chapter 4 HTML, CSS and Flexdashboard | R markdown - tips and tricks" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="shiny.html"/>
 
-<link rel="next" href="how-to-build-websites-on-r-markdown.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,65 +193,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R markdown - tips and tricks</h1>
-<p class="author"><em>Students from B2-CB01 and B2-CB02</em></p>
-<p class="date"><em>2022-04-14</em></p>
-</div>
-<div id="pdf-in-latex-in-r-markdown" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> PDF in LaTex in R Markdown<a href="index.html#pdf-in-latex-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>Chapter authors: Boyan Avramov, Alexandru Cebanu, Roberto Conti, Tsvetan Ivanov, Simon van de Pas, Afnan Al Shibani</em></p>
-<div id="what-does-pdf-mean" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> What does PDF mean?<a href="index.html#what-does-pdf-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>PDF is an abbreviation that stands for Portable Document Format. It’s a versatile file format created by Adobe that gives people an easy, reliable way to present and exchange documents - regardless of the software, hardware, or operating systems being used by anyone who views the document.</p>
-<p>The PDF format is now an open standard, maintained by the International Organization for Standardization (ISO). PDF docs can contain links and buttons, form fields, audio, video, and business logic. They can be signed electronically and can easily be viewed on Windows or MacOS using the free Adobe Acrobat Reader software.</p>
-<div id="how-to-create-pdf-in-markdown" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> How to create PDF in Markdown?<a href="index.html#how-to-create-pdf-in-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To create a PDF document from R Markdown, you specify the pdf_document output format in the YAML metadata like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Habits&quot;</span> </span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;John Doe&quot;</span> </span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;March 22, 2005&quot;</span> </span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> pdf_document </span></code></pre></div>
-</div>
-</div>
-<div id="general-info-abou-latex-in-markdown" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> General info abou LaTex in Markdown<a href="index.html#general-info-abou-latex-in-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>LaTeX is a document prepration system that is very powerful but can sometimes also be a bit confusing. Hence, some useful details are provided that should help R/exams users getting LaTeX installed and used effectively for preparing exams.</p>
-<div id="what-is-it" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> What is it?<a href="index.html#what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>LaTeX is a software system for document preparation.</p>
-<p>The system encompasses various elements that are important to distinguish:</p>
-<p>It uses a markup language that can be written in any simple text editor with commands structuring a document (title, sections, etc.), formatting text (italics, bold face, etc.), and providing a powerful mathematical notation.</p>
-<p>Subsequently, a TeX engine can be used to process such a text file and produce an output document that can be viewed, printed, etc. The probably most commonly-used TeX engine is pdfTeX rendering LaTeX files into PDF documents.</p>
-<p>TeX distributions ship collections of such TeX engines along with further utilities, macros, and fonts for processing LaTeX files. The most widely-used TeX distributions are TeX Live available on all major operating systems and MikTeX for Windows.</p>
-</div>
-<div id="how-to-install-latex-in-markdown" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> How to install LaTeX in Markdown<a href="index.html#how-to-install-latex-in-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you would like to create PDF documents from R Markdown, you will need to have a LaTeX distribution installed. Although there are several traditional options including MiKTeX, MacTeX, and TeX Live, we recommend that R Markdown users install TinyTeX.</p>
-<p>TinyTeX is a custom LaTeX distribution based on TeX Live that is relatively small in size, but functions well in most cases, especially for R users. Installing or running TinyTeX does not require sysadmin privileges.1 You can install TinyTeX with the R package tinytex (Xie 2022):</p>
-<p>tinytex::install_tinytex()</p>
-<p>to uninstall TinyTeX, run</p>
-<p>tinytex::uninstall_tinytex()</p>
-</div>
-</div>
-<div id="so-what-is-the-purpose-of-pdf-and-latex-in-r-markdown" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> So what is the purpose of PDF and LaTeX in R markdown?<a href="index.html#so-what-is-the-purpose-of-pdf-and-latex-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="pdf" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> PDF<a href="index.html#pdf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Converting Markdown to PDF files is a great way to bring your Markdown files like documents or if you want a different output method other than HTML.</p>
-<p>Publish &amp; share preliminary results with collaborators.</p>
-<p>Create professional reports that document our workflow and results directly from our code, reducing the risk of accidental copy and paste or transcription errors.</p>
-<p>Document our workflow to facilitate reproducibility.</p>
-<p>Efficiently change code outputs (figures, files) given changes in the data, methods, etc.</p>
-</div>
-<div id="latex" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> LaTeX<a href="index.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>LaTeX is a document preparation system that is very powerful but can sometimes also be a bit confusing. Hence, some useful details are provided that should help R/exams users getting LaTeX installed and used effectively for preparing exams.</p>
-<p>It uses a markup language that can be written in any simple text editor with commands structuring a document (title, sections, etc.), formatting text (italics, bold, etc.), and providing a powerful mathematical notation.</p>
-<p>A TeX engine can be used to process such a text fil and produce an output document that can be viewed, printed, etc. And probably the most commonly-used TeX engine is pdfTeX rendering LaTeX files into PDF documents.</p>
-<p>TeX distributions ship collections of such TeX engines along further utilities, macros and fonts for processing LaTeX files. And probably the most commonly-used TeX distributions are TeX Live available on all major operating systems and MikTeX for Window.</p>
+<div id="html-css-and-flexdashboard" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> HTML, CSS and Flexdashboard<a href="html-css-and-flexdashboard.html#html-css-and-flexdashboard" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Ertugrul Demirci, Bram Gielen, Boris Kamdem Tchuenkam, Max Moolenaar, Niels Saes, Armin Strojil</em></p>
+<div id="html-and-css" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> HTML and CSS<a href="html-css-and-flexdashboard.html#html-and-css" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Image below about how html and css work together.
+<img src="https://geomoer.github.io//moer-base-r/assets/images/spotlights/html-css.png"></p>
+<p>In a R markdown file you can just use html.</p>
+<p>If you want to use css in a r markdown file, you can use the css option:</p>
+<p>output:
+html_document:
+css: “style.css”</p>
+<p>If you want to include multiple css files, you may list them in brackets.</p>
+<p>output:
+html_document:
+css: [“style-1.css”, “style-2.css”]</p>
+<p>You can also use a css chunk to directly use the css in your r markdown file.</p>
+<p>{css, echo=FALSE}
+p {
+font-size: 20px;
+}</p>
+<p>The chunk option echo = false means that the css will be used on the html, but you will not see the chunk in the knitted file. We will use echo = True in the rest of the document to show the examples.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb11-1"><a href="html-css-and-flexdashboard.html#cb11-1" aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb11-2"><a href="html-css-and-flexdashboard.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb11-3"><a href="html-css-and-flexdashboard.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span>: <span class="st">&quot;Times New Roman&quot;</span><span class="op">;</span></span>
+<span id="cb11-4"><a href="html-css-and-flexdashboard.html#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-5"><a href="html-css-and-flexdashboard.html#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="html-css-and-flexdashboard.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">.example1</span> {</span>
+<span id="cb11-7"><a href="html-css-and-flexdashboard.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">blue</span><span class="op">;</span></span>
+<span id="cb11-8"><a href="html-css-and-flexdashboard.html#cb11-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-9"><a href="html-css-and-flexdashboard.html#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="html-css-and-flexdashboard.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.example2</span> {</span>
+<span id="cb11-11"><a href="html-css-and-flexdashboard.html#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb11-12"><a href="html-css-and-flexdashboard.html#cb11-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-13"><a href="html-css-and-flexdashboard.html#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="html-css-and-flexdashboard.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">.example3</span> {</span>
+<span id="cb11-15"><a href="html-css-and-flexdashboard.html#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></span>
+<span id="cb11-16"><a href="html-css-and-flexdashboard.html#cb11-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<style type="text/css">
+p {
+  font-size: 20px;
+  font-family: "Times New Roman";
+}
 
+.example1 {
+  color: blue;
+}
+
+.example2 {
+  color: red;
+}
+
+.example3 {
+  color: green;
+}
+</style>
+<p>You can also use divs to style specific elements instead of the whole document.</p>
+<div class="example1">
+<p>example 1</p>
 </div>
+<div class="example2">
+<p>example 2</p>
+</div>
+<div class="example3">
+<p>example 3</p>
+</div>
+<p>See the cheat sheets below to see what markdown syntax will turn into in the final report.</p>
+<div class="figure">
+<img src="https://geomoer.github.io//moer-base-r/assets/images/cheatsheet/03pdf_rmarkdown_cheatsheet_p1.PNG" alt="" />
+<p class="caption">R markdown cheat sheet 1</p>
+</div>
+<div class="figure">
+<img src="https://geomoer.github.io//moer-base-r/assets/images/cheatsheet/03pdf_rmarkdown_cheatsheet_p2.PNG" alt="" />
+<p class="caption">R markdown cheat sheet 2</p>
+</div>
+</div>
+<div id="flexdashboard" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Flexdashboard<a href="html-css-and-flexdashboard.html#flexdashboard" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To install the flexdashboard, you can use the following code</p>
+<p>install.packages(“flexdashboard”)</p>
+<p>To load the flexdashboard package, you can use</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="html-css-and-flexdashboard.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flexdashboard)</span></code></pre></div>
+<pre><code>## Warning: package &#39;flexdashboard&#39; was built under R version 4.1.2</code></pre>
+<p>You should also make sure that your output is in the form of a flexdashboard, you can do this by changing the output to flexdashboard::flex_dashboard.</p>
+<p>The goal of flexdashboard is to make it easy to create interactive dashboards for R, using R Markdown.</p>
+<ul>
+<li><p>Use R Markdown to publish a group of related data visualizations as a dashboard.</p></li>
+<li><p>Support for a wide variety of components including htmlwidgets; base, lattice, and grid graphics; tabular data; gauges and value boxes; and text annotations.</p></li>
+<li><p>Flexible and easy to specify row and column-based layouts. Components are intelligently re-sized to fill the browser and adapted for display on mobile devices.</p></li>
+<li><p>Storyboard layouts for presenting sequences of visualizations and related commentary.</p></li>
+</ul>
+<p>To install the flexdashboard, you can use the following code</p>
+<p>install.packages(“flexdashboard”)</p>
+<p>To load the flexdashboard package, you can use</p>
+<p>You should also make sure that your output is in the form of a flexdashboard, you can do this by changing the output to flexdashboard::flex_dashboard.</p>
+<p>The goal of flexdashboard is to make it easy to create interactive dashboards for R, using R Markdown.</p>
+<ul>
+<li><p>Use R Markdown to publish a group of related data visualizations as a dashboard.</p></li>
+<li><p>Support for a wide variety of components including htmlwidgets; base, lattice, and grid graphics; tabular data; gauges and value boxes; and text annotations.</p></li>
+<li><p>Flexible and easy to specify row and column-based layouts. Components are intelligently re-sized to fill the browser and adapted for display on mobile devices.</p></li>
+<li><p>Storyboard layouts for presenting sequences of visualizations and related commentary.</p></li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="html-css-and-flexdashboard.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gss_cat, <span class="fu">aes</span>(race, tvhours, <span class="at">fill=</span>race)) <span class="sc">+</span><span class="fu">geom_col</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 10146 rows containing missing values (position_stack).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>You can add an input sidebar to a flexdashboard by adding the {.sidebar} attribute to a column, which indicates that it should be laid out flush to the left with a default width of 250 pixels and a special background color. Sidebars always appear on the left no matter where they are defined within the flow of the document.</p>
+
 </div>
 </div>
             </section>
@@ -259,8 +307,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="shiny.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="how-to-build-websites-on-r-markdown.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -291,7 +339,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/viktorpavlov1/R-markdown-tips-and-tricks/edit/master/index.Rmd",
+"link": "https://github.com/viktorpavlov1/R-markdown-tips-and-tricks/edit/master/04-HTML-CSS-and-Flexdashboard.rmd",
 "text": "Edit"
 },
 "history": {
@@ -299,7 +347,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/viktorpavlov1/R-markdown-tips-and-tricks/blob/master/index.Rmd",
+"link": "https://github.com/viktorpavlov1/R-markdown-tips-and-tricks/blob/master/04-HTML-CSS-and-Flexdashboard.rmd",
 "text": null
 },
 "download": null,

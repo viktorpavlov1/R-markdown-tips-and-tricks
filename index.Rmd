@@ -1,9 +1,88 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "R markdown - tips and tricks"
+author: "Students from B2-CB01 and B2-CB02"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+# PDF in LaTex in R Markdown
+*Chapter authors: Boyan Avramov, Alexandru Cebanu, Roberto Conti, Tsvetan Ivanov, Simon van de Pas, Afnan Al Shibani*
 
+## What does PDF mean?
+
+PDF is an abbreviation that stands for Portable Document Format. It's a versatile file format created by Adobe that gives people an easy, reliable way to present and exchange documents - regardless of the software, hardware, or operating systems being used by anyone who views the document.  
+
+The PDF format is now an open standard, maintained by the International Organization for Standardization (ISO). PDF docs can contain links and buttons, form fields, audio, video, and business logic. They can be signed electronically and can easily be viewed on Windows or MacOS using the free Adobe Acrobat Reader software. 
+
+ 
+
+### How to create PDF in Markdown? 
+
+To create a PDF document from R Markdown, you specify the pdf_document output format in the YAML metadata like this: 
+
+```{r, eval=FALSE}
+title: "Habits" 
+author: "John Doe" 
+date: "March 22, 2005" 
+output: pdf_document 
+```
+
+## General info abou LaTex in Markdown 
+
+LaTeX is a document prepration system that is very powerful but can sometimes also be a bit confusing. Hence, some useful details are provided that should help R/exams users getting LaTeX installed and used effectively for preparing exams.
+
+
+### What is it? 
+
+LaTeX is a software system for document preparation.  
+
+The system encompasses various elements that are important to distinguish: 
+
+It uses a markup language that can be written in any simple text editor with commands structuring a document (title, sections, etc.), formatting text (italics, bold face, etc.), and providing a powerful mathematical notation. 
+
+Subsequently, a TeX engine can be used to process such a text file and produce an output document that can be viewed, printed, etc. The probably most commonly-used TeX engine is pdfTeX rendering LaTeX files into PDF documents. 
+
+TeX distributions ship collections of such TeX engines along with further utilities, macros, and fonts for processing LaTeX files. The most widely-used TeX distributions are TeX Live available on all major operating systems and MikTeX for Windows. 
+
+
+### How to install LaTeX in Markdown 
+
+If you would like to create PDF documents from R Markdown, you will need to have a LaTeX distribution installed. Although there are several traditional options including MiKTeX, MacTeX, and TeX Live, we recommend that R Markdown users install TinyTeX. 
+
+  
+
+TinyTeX is a custom LaTeX distribution based on TeX Live that is relatively small in size, but functions well in most cases, especially for R users. Installing or running TinyTeX does not require sysadmin privileges.1 You can install TinyTeX with the R package tinytex (Xie 2022): 
+
+ 
+
+tinytex::install_tinytex() 
+
+to uninstall TinyTeX, run 
+
+tinytex::uninstall_tinytex() 
+
+## So what is the purpose of PDF and LaTeX in R markdown? 
+
+### PDF 
+
+Converting Markdown to PDF files is a great way to bring your Markdown files like documents or if you want a different output method other than HTML. 
+
+Publish & share preliminary results with collaborators. 
+
+Create professional reports that document our workflow and results directly from our code, reducing the risk of accidental copy and paste or transcription errors. 
+
+Document our workflow to facilitate reproducibility. 
+
+Efficiently change code outputs (figures, files) given changes in the data, methods, etc. 
+
+ 
+
+### LaTeX 
+
+LaTeX is a document preparation system that is very powerful but can sometimes also be a bit confusing. Hence, some useful details are provided that should help R/exams users getting LaTeX installed and used effectively for preparing exams. 
+
+It uses a markup language that can be written in any simple text editor with commands structuring a document (title, sections, etc.), formatting text (italics, bold, etc.), and providing a powerful mathematical notation. 
+
+A TeX engine can be used to process such a text fil and produce an output document that can be viewed, printed, etc. And probably the most commonly-used TeX engine is pdfTeX rendering LaTeX files into PDF documents. 
+
+TeX distributions ship collections of such TeX engines along further utilities, macros and fonts for processing LaTeX files. And probably the most commonly-used TeX distributions are TeX Live available on all major operating systems and MikTeX for Window.

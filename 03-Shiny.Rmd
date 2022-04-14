@@ -1,0 +1,170 @@
+
+# Shiny 
+*Chapter authors: Randolph Anokyewaah, Ivan Bekriev, Kalina Grigorova, Vasil Kaloyanov, Yavor Stoichkov*
+
+## Introduction
+
+Shiny is an R package that makes it easy to build interactive web apps straight from R. You can also extend your Shiny apps with CSS themes, html or JavaScript actions.
+
+## Structure
+
+Shiny apps are contained in a single script called app.R.
+On the other hand the app.R is divided into three main components:
+
+* a user interface object -  controls the layout and appearance of the app.
+
+* a server function - contains the instructions that your computer needs to build your app. 
+
+* a call to the shinyApp function - creates Shiny app objects from an explicit UI/server pair.
+
+
+## Building the User Interface
+
+Shiny uses the function fluidPage to create a display that automatically adjusts to the dimensions of the user’s browser window. You lay out the user interface of the app by placing elements in the fluidPage function.The most popular elements to be added in the fluidPage function are the titlePanel and sidebarLayout. sidebarLayout usually needs two arguments : sidebarPanel and the mainPanel functions. 
+
+```{r, eval=FALSE}
+ui <- fluidPage(
+  titlePanel("title panel"),
+  
+  sidebarLayout(position = "right",
+                sidebarPanel("sidebar panel"),
+                mainPanel("main panel")
+  )
+)
+```
+
+In addition to these functions the developer might use HTML tags to make the app better looking and add other features such as pictures.
+
+```{r, eval=FALSE}
+img(src = "my_image.png", height = 72, width = 72)
+```
+
+
+
+
+It is also possible to include controls widgets with different functionalities. For example, Shiny provides a function named actionButton that creates an Action Button and a function named sliderInput that creates a slider bar. The widgets are usually situated inside the sidebarPanel or mainPanel.
+
+```{r, eval=FALSE}
+ui <- fluidPage(
+  titlePanel("Basic widgets"),
+  
+  fluidRow(
+    
+    column(3,
+           h3("Buttons"),
+           actionButton("action", "Action"),
+           br(),
+           br(), 
+           submitButton("Submit")),
+    
+    column(3,
+           h3("Single checkbox"),
+           checkboxInput("checkbox", "Choice A", value = TRUE)),
+    
+    column(3, 
+           checkboxGroupInput("checkGroup", 
+                              h3("Checkbox group"), 
+                              choices = list("Choice 1" = 1, 
+                                             "Choice 2" = 2, 
+                                             "Choice 3" = 3),
+                              selected = 1)),
+    
+    column(3, 
+           dateInput("date", 
+                     h3("Date input"), 
+                     value = "2014-01-01"))   
+  ),
+  
+  fluidRow(
+    
+    column(3,
+           dateRangeInput("dates", h3("Date range"))),
+    
+    column(3,
+           fileInput("file", h3("File input"))),
+    
+    column(3, 
+           h3("Help text"),
+           helpText("Note: help text isn't a true widget,", 
+                    "but it provides an easy way to add text to",
+                    "accompany other widgets.")),
+    
+    column(3, 
+           numericInput("num", 
+                        h3("Numeric input"), 
+                        value = 1))   
+  )
+)
+```
+
+
+## Using the Server function
+
+The server function plays a special role in the Shiny process; it builds a list-like object named output that contains all of the code needed to update the R objects in the app. .Each R object needs to have its own entry in the list.You can create an entry by defining a new element for output within the server function. The element name should match the name of the reactive element that you created in the ui. Each entry to output should contain the output of one of Shiny’s render functions. These functions capture an R expression and do some light pre-processing on the expression. Use the render function that corresponds to the type of reactive object you are making.
+
+
+
+
+
+
+    render                 |          function	creates
+    -------                |          ------------------
+    renderDataTable        |          DataTable
+    renderImage            |          images 
+    renderPlot             |          plots
+    renderPrint            |          any printed output
+    renderTable            |          data frame, matrix, other table like structures
+                       
+
+
+```{r, eval=FALSE}
+ui <- fluidPage(
+  titlePanel("censusVis"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Create demographic maps with 
+               information from the 2010 US Census."),
+      
+      selectInput("var", 
+                  label = "Choose a variable to display",
+                  choices = c("Percent White", 
+                              "Percent Black",
+                              "Percent Hispanic", 
+                              "Percent Asian"),
+                  selected = "Percent White"),
+      
+      sliderInput("range", 
+                  label = "Range of interest:",
+                  min = 0, max = 100, value = c(0, 100))
+    ),
+    
+    mainPanel(
+      textOutput("selected_var")
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  
+  output$selected_var <- renderText({ 
+    "You have selected this"
+  })
+  
+}
+
+```
+
+
+## Calling the Shiny App
+At the end, when the ui and the server have been created in order to start the whole app, it is necessary to call its components:
+
+```{r, eval=FALSE}
+shinyApp(ui = ui, server = server)
+```
+
+
+**Tip:**
+Creating a dashboard using Shiny can be rather difficult. The best tip regarding how to start using Shiny is to find the code of already existing dashboard and begin playing with it. In this way it will become more clear how the functions work and what combinations can be applied.
+
